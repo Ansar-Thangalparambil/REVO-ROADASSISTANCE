@@ -1,0 +1,8 @@
+@import './styles/design-tokens.css';
+@import './styles/glass-components.css';
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
