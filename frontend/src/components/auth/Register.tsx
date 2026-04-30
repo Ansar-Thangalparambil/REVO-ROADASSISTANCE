@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { authAPI } from '../../api/auth';
 import { RegisterData } from '../../types';
+import { getDashboardPathByRole } from '../../utils/dashboardRouting';
 
 export default function Register() {
   const [formData, setFormData] = useState<RegisterData>({
@@ -22,12 +23,11 @@ export default function Register() {
     try {
       const response = await authAPI.register(formData);
       if (response.success) {
-        // Auto-login after registration
         if (response.data.tokens) {
           localStorage.setItem('access_token', response.data.tokens.access);
           localStorage.setItem('refresh_token', response.data.tokens.refresh);
           localStorage.setItem('user', JSON.stringify(response.data.user));
-          navigate('/dashboard');
+          navigate(getDashboardPathByRole(response.data.user.role));
         }
       } else {
         setError(response.message || 'Registration failed');
@@ -40,66 +40,82 @@ export default function Register() {
   };
 
   return (
-    <div className="register-container">
-      <h2>Create Account</h2>
-      <p className="subtitle">Join RoadAssist today</p>
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Phone Number</label>
-          <input
-            type="tel"
-            placeholder="+91 9876543210"
-            value={formData.phone}
-            onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            required
-          />
+    <div className="revo-wrapper">
+      <div className="revo-mobile-container" style={{ padding: '24px', paddingTop: '40px' }}>
+        
+        <div style={{ marginBottom: '32px' }}>
+          <h1 className="revo-logo" style={{ fontSize: '32px' }}>Create Account</h1>
+          <p className="revo-body" style={{ marginTop: '8px' }}>Join Revō today</p>
         </div>
 
-        <div className="form-group">
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Minimum 6 characters"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-            required
-            minLength={6}
-          />
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div>
+            <label className="revo-label revo-meta">Phone Number</label>
+            <input
+              type="tel"
+              className="revo-input"
+              placeholder="+91 9876543210"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              required
+            />
+          </div>
+
+          <div>
+            <label className="revo-label revo-meta">Password</label>
+            <input
+              type="password"
+              className="revo-input"
+              placeholder="Minimum 6 characters"
+              value={formData.password}
+              onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+              required
+              minLength={6}
+            />
+          </div>
+
+          <div>
+            <label className="revo-label revo-meta">Email (Optional)</label>
+            <input
+              type="email"
+              className="revo-input"
+              placeholder="your@email.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+
+          <div>
+            <label className="revo-label revo-meta">I am a</label>
+            <select
+              className="revo-input"
+              value={formData.role}
+              onChange={(e) => setFormData({ ...formData, role: e.target.value as any })}
+            >
+              <option value="CUSTOMER">Customer</option>
+              <option value="PROVIDER">Service Provider</option>
+              <option value="VENDOR">Parts Vendor</option>
+            </select>
+          </div>
+
+          {error && (
+            <div className="revo-card" style={{ border: '1px solid #D93025', backgroundColor: '#FFF1F2', padding: '12px' }}>
+              <p className="revo-body" style={{ color: '#D93025', fontSize: '14px' }}>{error}</p>
+            </div>
+          )}
+
+          <button type="submit" className="revo-btn-dark" disabled={loading} style={{ marginTop: '16px' }}>
+            {loading ? 'Creating Account...' : 'Register'}
+          </button>
+        </form>
+
+        <div style={{ marginTop: '24px', textAlign: 'center' }}>
+          <Link to="/login" style={{ textDecoration: 'none', color: '#6B6B72', fontSize: '14px' }}>
+            Already have an account? <span style={{ color: '#1C1C1E', fontWeight: 500 }}>Log In</span>
+          </Link>
         </div>
-
-        <div className="form-group">
-          <label>Email (Optional)</label>
-          <input
-            type="email"
-            placeholder="your@email.com"
-            value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          />
-        </div>
-
-        <div className="form-group">
-          <label>I am a</label>
-          <select
-            value={formData.role}
-            onChange={(e) => setFormData({ ...formData, role: e.target.value as any })}
-          >
-            <option value="CUSTOMER">Customer</option>
-            <option value="PROVIDER">Service Provider</option>
-            <option value="VENDOR">Parts Vendor</option>
-          </select>
-        </div>
-
-        {error && <div className="error-message">{error}</div>}
-
-        <button type="submit" disabled={loading}>
-          {loading ? 'Creating Account...' : 'Register'}
-        </button>
-
-        <div className="auth-links">
-          <Link to="/login">Already have an account? Login</Link>
-        </div>
-      </form>
+        
+      </div>
     </div>
   );
 }

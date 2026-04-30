@@ -1,5 +1,5 @@
 import axiosInstance from './axios';
-import { AuthResponse, RegisterData, LoginData, VerifyOTPData, ApiResponse } from '../types';
+import { AuthResponse, RegisterData, LoginData, VerifyOTPData } from '../types';
 
 export const authAPI = {
   register: async (data: RegisterData): Promise<AuthResponse> => {

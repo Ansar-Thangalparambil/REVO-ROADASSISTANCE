@@ -1,5 +1,5 @@
 import axiosInstance from './axios';
-import { Service, ServiceCategory, ApiResponse } from '../types';
+import { Service, ServiceCategory } from '../types';
 
 export const servicesAPI = {
   getCategories: async (): Promise<ServiceCategory[]> => {

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1';
+// Use Vite proxy by default in development to avoid CORS issues.
+// You can override in env with VITE_API_BASE_URL for deployed environments.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api/v1';
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,

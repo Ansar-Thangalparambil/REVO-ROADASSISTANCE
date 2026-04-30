@@ -1,0 +1,300 @@
+/* ===================================================
+   Revō Strict Design System
+   Minimal, light-themed, responsive
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7F7F5;
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1C1C1E;
+}
+
+/* Typography */
+.revo-h1, .revo-h2, .revo-h3 {
+  font-weight: 500;
+  color: #1C1C1E;
+  margin: 0;
+}
+
+.revo-body, .revo-label {
+  font-weight: 400;
+  color: #6B6B72;
+  margin: 0;
+}
+
+.revo-meta {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* Authentication Layout (Mobile-sized containers) */
+.revo-wrapper {
+  background-color: #F7F7F5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.revo-mobile-container {
+  background-color: #F7F7F5;
+  width: 100%;
+  max-width: 414px;
+  min-height: 800px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dashboard Layout (Desktop) */
+.revo-dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #F7F7F5;
+}
+
+.revo-sidebar {
+  width: 260px;
+  background-color: #FFFFFF;
+  border-right: 1px solid #E8E8E4;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 0;
+}
+
+.revo-sidebar-logo {
+  padding: 0 32px 32px;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #1C1C1E;
+  border-bottom: 1px solid #E8E8E4;
+  margin-bottom: 24px;
+}
+
+.revo-nav-item {
+  padding: 12px 32px;
+  font-size: 15px;
+  color: #6B6B72;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-right: 3px solid transparent;
+}
+
+.revo-nav-item:hover {
+  color: #1C1C1E;
+  background-color: #F7F7F5;
+}
+
+.revo-nav-item.active {
+  color: #1C1C1E;
+  border-right-color: #1C1C1E;
+  background-color: #F7F7F5;
+}
+
+.revo-dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.revo-dashboard-header {
+  height: 80px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #E8E8E4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 40px;
+}
+
+.revo-dashboard-content {
+  flex: 1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+/* Card Component */
+.revo-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E8E8E4;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: none; 
+}
+
+/* Badges */
+.revo-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.revo-badge.warning {
+  background-color: rgba(240, 165, 0, 0.15);
+  color: #F0A500;
+}
+
+.revo-badge.success {
+  background-color: rgba(0, 166, 147, 0.15);
+  color: #00A693;
+}
+
+.revo-badge.danger {
+  background-color: rgba(217, 48, 37, 0.15);
+  color: #D93025;
+}
+
+/* Forms & Inputs */
+.revo-input {
+  width: 100%;
+  border: 1px solid #E8E8E4;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  color: #1C1C1E;
+  background-color: #FFFFFF;
+  margin-top: 8px;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.revo-input:focus {
+  border-color: #1C1C1E;
+}
+
+.revo-input::placeholder {
+  color: #6B6B72;
+}
+
+/* Buttons */
+.revo-btn-primary {
+  background-color: #D93025;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.revo-btn-primary:hover { opacity: 0.9; }
+
+.revo-btn-dark {
+  background-color: #1C1C1E;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.revo-btn-dark:hover { opacity: 0.9; }
+
+.revo-btn-secondary {
+  background-color: #F7F7F5;
+  color: #1C1C1E;
+  border: 1px solid #E8E8E4;
+  border-radius: 8px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.revo-btn-secondary:hover { background-color: #E8E8E4; }
+
+/* Dashboard Grid */
+.revo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* 3D Landing Page specific */
+.landing-hero-split {
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+  gap: 60px;
+}
+
+.landing-hero-content {
+  flex: 1;
+}
+
+.landing-hero-3d {
+  flex: 1;
+  position: relative;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.css-3d-model {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .landing-hero-split {
+    flex-direction: column;
+    padding-top: 40px;
+  }
+  .revo-dashboard-layout {
+    flex-direction: column;
+  }
+  .revo-sidebar {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #E8E8E4;
+    padding: 16px 0;
+  }
+  .revo-nav-item {
+    display: inline-flex;
+    border-right: none;
+    border-bottom: 3px solid transparent;
+  }
+  .revo-nav-item.active {
+    border-right-color: transparent;
+    border-bottom-color: #1C1C1E;
+  }
+}

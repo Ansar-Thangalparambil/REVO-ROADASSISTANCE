@@ -12,10 +12,8 @@ export default function AuthPage() {
   }, [location]);
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        {isLogin ? <Login /> : <Register />}
-      </div>
-    </div>
+    <>
+      {isLogin ? <Login /> : <Register />}
+    </>
   );
 }

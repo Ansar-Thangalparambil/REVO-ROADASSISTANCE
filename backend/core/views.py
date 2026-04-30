@@ -6,6 +6,17 @@ from .serializers import ServiceRequestSerializer
 
 from .models import Provider
 from .serializers import ProviderSerializer
+from django.utils import timezone
+
+
+@api_view(['GET'])
+def health_check(request):
+    return Response({
+        'success': True,
+        'service': 'revo-backend',
+        'status': 'ok',
+        'timestamp': timezone.now().isoformat(),
+    }, status=status.HTTP_200_OK)
 
 @api_view(['GET', 'POST'])
 def service_requests(request):

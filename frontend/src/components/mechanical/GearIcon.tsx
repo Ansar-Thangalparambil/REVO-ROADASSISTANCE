@@ -33,8 +33,6 @@ export default function GearIcon({
       {/* Gear teeth */}
       {[...Array(8)].map((_, i) => {
         const angle = (i * 45) * (Math.PI / 180);
-        const x1 = 50 + Math.cos(angle) * 35;
-        const y1 = 50 + Math.sin(angle) * 35;
         const x2 = 50 + Math.cos(angle) * 45;
         const y2 = 50 + Math.sin(angle) * 45;
         
