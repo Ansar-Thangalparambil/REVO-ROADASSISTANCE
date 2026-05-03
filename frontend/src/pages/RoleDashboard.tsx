@@ -48,56 +48,30 @@ export default function RoleDashboard() {
   const content = useMemo(() => roleContent[user.role], [user.role]);
 
   return (
-    <main style={{ minHeight: '100vh', background: '#F7F7F5', padding: '24px' }}>
-      <section
-        style={{
-          maxWidth: '1080px',
-          margin: '0 auto',
-          background: '#FFFFFF',
-          border: '0.5px solid #E8E8E4',
-          borderRadius: '14px',
-          padding: '20px',
-        }}
-      >
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '18px' }}>
+    <main className="revo-dashboard-shell">
+      <section className="revo-dashboard-panel">
+        <header className="revo-dashboard-panel-header">
           <div>
-            <h1 style={{ margin: 0, color: '#1C1C1E', fontWeight: 600 }}>{content.title}</h1>
-            <p style={{ margin: '6px 0 0', color: '#6B6B72' }}>{content.subtitle}</p>
+            <h1>{content.title}</h1>
+            <p>{content.subtitle}</p>
           </div>
           <button
+            type="button"
+            className="revo-dashboard-logout"
             onClick={() => {
               authAPI.logout();
               navigate('/login');
-            }}
-            style={{
-              background: '#F7F7F5',
-              color: '#1C1C1E',
-              border: '0.5px solid #E8E8E4',
-              borderRadius: '10px',
-              minHeight: '38px',
-              padding: '0 14px',
-              cursor: 'pointer',
             }}
           >
             Log Out
           </button>
         </header>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: '12px' }}>
+        <div className="revo-dashboard-cards">
           {content.cards.map((card) => (
-            <article
-              key={card}
-              style={{
-                background: '#FFFFFF',
-                border: '0.5px solid #E8E8E4',
-                borderRadius: '12px',
-                padding: '14px',
-              }}
-            >
-              <p style={{ margin: 0, fontSize: '11px', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#6B6B72' }}>
-                {user.role}
-              </p>
-              <h3 style={{ margin: '8px 0 0', color: '#1C1C1E', fontWeight: 500 }}>{card}</h3>
+            <article key={card} className="revo-dashboard-card">
+              <p className="revo-dashboard-card-kicker">{user.role}</p>
+              <h3>{card}</h3>
             </article>
           ))}
         </div>

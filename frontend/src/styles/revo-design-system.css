@@ -1,0 +1,121 @@
+/* =========================================================
+   Revō Design System — canonical CSS custom properties
+   Spec: frontend/design.md
+   ========================================================= */
+
+:root {
+  /* —— Palette (YAML) —— */
+  --revo-surface: #fdf8f8;
+  --revo-surface-dim: #ddd9d9;
+  --revo-surface-bright: #fdf8f8;
+  --revo-surface-container-lowest: #ffffff;
+  --revo-surface-container-low: #f7f3f2;
+  --revo-surface-container: #f1edec;
+  --revo-surface-container-high: #ebe7e7;
+  --revo-surface-container-highest: #e5e2e1;
+  --revo-on-surface: #1c1b1b;
+  --revo-on-surface-variant: #46464a;
+  --revo-inverse-surface: #313030;
+  --revo-inverse-on-surface: #f4f0ef;
+  --revo-outline: #77767b;
+  --revo-outline-variant: #c7c6ca;
+  --revo-surface-tint: #5f5e60;
+  --revo-primary: #010102;
+  --revo-on-primary: #ffffff;
+  --revo-primary-container: #1c1c1e;
+  --revo-on-primary-container: #858486;
+  --revo-inverse-primary: #c8c6c8;
+  --revo-secondary: #5e5e65;
+  --revo-on-secondary: #ffffff;
+  --revo-secondary-container: #e3e1ea;
+  --revo-on-secondary-container: #64646b;
+  --revo-tertiary: #010100;
+  --revo-on-tertiary: #ffffff;
+  --revo-tertiary-container: #1f1b1a;
+  --revo-on-tertiary-container: #8a8381;
+  --revo-error: #ba1a1a;
+  --revo-on-error: #ffffff;
+  --revo-error-container: #ffdad6;
+  --revo-on-error-container: #93000a;
+  --revo-primary-fixed: #e4e2e4;
+  --revo-primary-fixed-dim: #c8c6c8;
+  --revo-on-primary-fixed: #1b1b1d;
+  --revo-on-primary-fixed-variant: #474649;
+  --revo-secondary-fixed: #e3e1ea;
+  --revo-secondary-fixed-dim: #c7c5cd;
+  --revo-on-secondary-fixed: #1a1b21;
+  --revo-on-secondary-fixed-variant: #46464d;
+  --revo-tertiary-fixed: #eae0de;
+  --revo-tertiary-fixed-dim: #cdc5c3;
+  --revo-on-tertiary-fixed: #1f1b1a;
+  --revo-on-tertiary-fixed-variant: #4b4644;
+  --revo-background: #fdf8f8;
+  --revo-on-background: #1c1b1b;
+  --revo-surface-variant: #e5e2e1;
+
+  /* —— Product accents (written spec) —— */
+  --revo-text-primary: #1c1c1e;
+  --revo-text-secondary: #6b6b72;
+  --revo-ui-border: #e8e8e4;
+  --revo-sos: #d93025;
+  --revo-warning: #f0a500;
+  --revo-teal: #00a693;
+  --revo-canvas: #f7f7f5;
+
+  /* —— Elevation —— */
+  --revo-shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  /* —— Radius (YAML rounded) —— */
+  --revo-radius-sm: 0.25rem;
+  --revo-radius-default: 0.5rem;
+  --revo-radius-md: 0.75rem;
+  --revo-radius-lg: 1rem;
+  --revo-radius-xl: 1.5rem;
+  --revo-radius-full: 9999px;
+
+  /* —— Spacing (reference — prefer Tailwind scale in new UI) —— */
+  --revo-space-base: 4px;
+  --revo-space-xs: 8px;
+  --revo-space-sm: 12px;
+  --revo-space-md: 16px;
+  --revo-space-lg: 24px;
+  --revo-space-xl: 32px;
+  --revo-space-container-margin: 20px;
+  --revo-space-gutter: 16px;
+
+  /* —— Typography scale —— */
+  --revo-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --revo-display-size: 34px;
+  --revo-display-line: 41px;
+  --revo-display-weight: 700;
+  --revo-display-tracking: -0.02em;
+  --revo-h1-size: 28px;
+  --revo-h1-line: 34px;
+  --revo-h1-weight: 700;
+  --revo-h1-tracking: -0.01em;
+  --revo-h2-size: 22px;
+  --revo-h2-line: 28px;
+  --revo-h2-weight: 600;
+  --revo-h2-tracking: -0.01em;
+  --revo-body-lg-size: 17px;
+  --revo-body-lg-line: 24px;
+  --revo-body-md-size: 15px;
+  --revo-body-md-line: 20px;
+  --revo-label-caps-size: 12px;
+  --revo-label-caps-line: 16px;
+  --revo-label-caps-weight: 600;
+  --revo-label-caps-tracking: 0.05em;
+  --revo-callout-size: 13px;
+  --revo-callout-line: 18px;
+
+  /* —— Legacy / directory aliases (directory.css, maps) —— */
+  --bg-page: var(--revo-canvas);
+  --bg-card: var(--revo-surface-container-lowest);
+  --border-ui: var(--revo-ui-border);
+  --text-primary: var(--revo-text-primary);
+  --text-secondary: var(--revo-text-secondary);
+  --sos: var(--revo-sos);
+  --warning: var(--revo-warning);
+  --water: var(--revo-teal);
+  --radius-card: var(--revo-radius-lg);
+}

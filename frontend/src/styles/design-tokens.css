@@ -129,29 +129,29 @@
   --slate-950: #020617;
 
   /* ── Surface Colors ── */
-  --surface-primary:   #ffffff;
-  --surface-secondary: var(--slate-50);
-  --surface-tertiary:  var(--slate-100);
+  --surface-primary:   var(--revo-surface-container-lowest, #ffffff);
+  --surface-secondary: var(--revo-background, var(--slate-50));
+  --surface-tertiary:  var(--revo-surface-container-low, var(--slate-100));
   --surface-elevated:  #ffffff;
   --surface-overlay:   rgba(15, 23, 42, 0.6);
   --surface-dark:      var(--slate-900);
 
-  /* ── Text Colors ── */
-  --text-primary:   var(--slate-900);
-  --text-secondary: var(--slate-500);
+  /* ── Text Colors (Revō overrides when design-system loaded) ── */
+  --text-primary:   var(--revo-text-primary, var(--slate-900));
+  --text-secondary: var(--revo-text-secondary, var(--slate-500));
   --text-tertiary:  var(--slate-400);
   --text-inverse:   #ffffff;
   --text-accent:    var(--primary-600);
   --text-link:      var(--primary-600);
 
   /* ── Border Colors ── */
-  --border-default: var(--slate-200);
+  --border-default: var(--revo-ui-border, var(--slate-200));
   --border-subtle:  var(--slate-100);
   --border-strong:  var(--slate-300);
   --border-focus:   var(--primary-500);
 
   /* ── Typography ── */
-  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
   --font-body:    'Inter', system-ui, -apple-system, sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
@@ -219,6 +219,25 @@
   --z-overlay:  40;
   --z-modal:    50;
   --z-toast:    60;
+
+  /* ── Glass morphism (glass-components.css) ── */
+  --glass-dark: rgba(15, 23, 42, 0.78);
+  --glass-light: rgba(255, 255, 255, 0.12);
+  --glass-blur: blur(14px);
+  --glass-blur-heavy: blur(28px);
+  --glass-border: rgba(148, 163, 184, 0.4);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.14);
+  --shadow-inner: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-glow: 0 0 24px rgba(59, 130, 246, 0.3);
+  --duration-micro: 120ms;
+  --duration-standard: 280ms;
+  --duration-hero: 800ms;
+  --ease-mechanical: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-heading: var(--font-display);
+  --racing-gold: #e8c547;
+  --engine-red: #e11d48;
+  --carbon-black: #0d0d0f;
+  --chrome: linear-gradient(180deg, #e8eaef 0%, #b8bcc6 100%);
 }
 
 
@@ -242,7 +261,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--text-primary);
-  background: var(--surface-secondary);
+  background: var(--revo-background, var(--surface-secondary));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -276,7 +295,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.2;
-  color: var(--text-primary);
+  color: inherit;
 }
 
 .text-display {
@@ -290,8 +309,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Selection ── */
 ::selection {
-  background: var(--primary-200);
-  color: var(--primary-900);
+  background: color-mix(in srgb, var(--revo-text-primary, var(--slate-900)) 14%, transparent);
+  color: var(--revo-text-primary, var(--slate-900));
 }
 
 /* ── Custom Scrollbar ── */

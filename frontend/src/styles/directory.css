@@ -1,14 +1,4 @@
-:root {
-  --bg-page: #F7F7F5;
-  --bg-card: #FFFFFF;
-  --border-ui: #E8E8E4;
-  --text-primary: #1C1C1E;
-  --text-secondary: #6B6B72;
-  --sos: #D93025;
-  --warning: #F0A500;
-  --water: #00A693;
-  --radius-card: 12px;
-}
+/* Tokens: revo-design-system.css (aliases --bg-page, --border-ui, …) */
 
 .directory-hub {
   min-height: 100vh;

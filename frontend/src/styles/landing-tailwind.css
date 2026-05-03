@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Material-style palette from design spec */
+  --color-tertiary: #010100;
+  --color-surface-container-highest: #e5e2e1;
+  --color-surface-container-high: #ebe7e7;
+  --color-on-secondary-container: #64646b;
+  --color-on-secondary-fixed-variant: #46464d;
+  --color-secondary-fixed-dim: #c7c5cd;
+  --color-surface-tint: #5f5e60;
+  --color-surface-container: #f1edec;
+  --color-secondary-fixed: #e3e1ea;
+  --color-inverse-on-surface: #f4f0ef;
+  --color-on-tertiary-fixed-variant: #4b4644;
+  --color-on-error: #ffffff;
+  --color-on-tertiary-fixed: #1f1b1a;
+  --color-on-surface: #1c1b1b;
+  --color-on-error-container: #93000a;
+  --color-on-primary-container: #858486;
+  --color-on-secondary: #ffffff;
+  --color-primary-fixed: #e4e2e4;
+  --color-primary-container: #1c1c1e;
+  --color-on-surface-variant: #46464a;
+  --color-on-primary: #ffffff;
+  --color-primary-fixed-dim: #c8c6c8;
+  --color-on-tertiary-container: #8a8381;
+  --color-on-primary-fixed-variant: #474649;
+  --color-outline: #77767b;
+  --color-tertiary-fixed-dim: #cdc5c3;
+  --color-on-background: #1c1b1b;
+  --color-tertiary-container: #1f1b1a;
+  --color-secondary: #5e5e65;
+  --color-surface: #fdf8f8;
+  --color-outline-variant: #c7c6ca;
+  --color-surface-dim: #ddd9d9;
+  --color-on-primary-fixed: #1b1b1d;
+  --color-inverse-surface: #313030;
+  --color-on-tertiary: #ffffff;
+  --color-error: #ba1a1a;
+  --color-secondary-container: #e3e1ea;
+  --color-background: #fdf8f8;
+  --color-surface-container-lowest: #ffffff;
+  --color-primary: #010102;
+  --color-surface-variant: #e5e2e1;
+  --color-surface-container-low: #f7f3f2;
+  --color-on-secondary-fixed: #1a1b21;
+  --color-inverse-primary: #c8c6c8;
+  --color-error-container: #ffdad6;
+  --color-surface-bright: #fdf8f8;
+  --color-tertiary-fixed: #eae0de;
+  --color-sos: #d93025;
+  --color-ui-border: #e8e8e4;
+  --color-canvas: #f7f7f5;
+  --color-muted: #6b6b72;
+  --color-teal: #00a693;
+  --color-amber: #f0a500;
+  --shadow-revo-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  /* Do not define --spacing-xs..xl here: it overrides Tailwind defaults and
+     breaks utilities like max-w-lg (becomes ~24px). Use default spacing scale. */
+
+  --font-display: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-label-caps: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-body-lg: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-h2: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-h1: Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-callout: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Landing-only: Material Symbols (avoid colliding with global .glass-card) */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  user-select: none;
+  -webkit-user-select: none;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Landing shell: default text color (utilities still override per element) */
+.revo-landing-page {
+  color: var(--color-on-background, #1c1b1b);
+}
+
+.landing-sos-button {
+  background-color: var(--revo-sos, var(--color-sos)) !important;
+}

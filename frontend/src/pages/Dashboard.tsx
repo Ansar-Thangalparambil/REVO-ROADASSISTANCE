@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authAPI } from '../api/auth';
 import { User } from '../types';
-import '../styles/revo.css';
 
 export default function Dashboard() {
   const [user, setUser] = useState<User | null>(null);

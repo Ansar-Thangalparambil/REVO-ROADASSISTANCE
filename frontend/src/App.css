@@ -1,4 +1,6 @@
+@import './styles/revo-design-system.css';
 @import './styles/design-tokens.css';
+@import './styles/revo.css';
 @import './styles/glass-components.css';
 
 .App {
